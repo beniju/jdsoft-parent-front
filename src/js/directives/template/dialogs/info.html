@@ -1,0 +1,20 @@
+<div class="modal" id="notifyModal" role="dialog"
+	aria-Labelledby="notifyModalLabel">
+	<div class="modal-dialog modal-chico">
+		<div class="modal-content">
+			<div class="modal-header dialog-header-info">
+				<button type="button" class="close" ng-click="close()"
+					class="pull-right">&times;</button>
+				<h4 class="modal-title">
+					<span class="glyphicon glyphicon-info-sign"></span>&nbsp;&nbsp;{{header}}
+					
+
+				</h4>
+			</div>
+			<div class="modal-body text-info" ng-bind="msg"></div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-primary" ng-click="close()" focus-me="true">OK</button>
+			</div>
+		</div>
+	</div>
+</div>

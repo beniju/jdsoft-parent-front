@@ -1,0 +1,17 @@
+<div class="modal" id="errorModal" role="dialog"
+	aria-Labelledby="errorModalLabel">
+	<div class="modal-dialog modal-chico">
+		<div class="modal-content">
+			<div class="modal-header dialog-header-error">
+				<button type="button" class="close" ng-click="close()">&times;</button>
+				<h4 class="modal-title">
+					<span class="glyphicon glyphicon-warning-sign"></span>&nbsp;&nbsp;Error
+				</h4>
+			</div>
+			<div class="modal-body text-danger" ng-bind="msg"></div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-primary" ng-click="close()" focus-me="true">Cerrar</button>
+			</div>
+		</div>
+	</div>
+</div>

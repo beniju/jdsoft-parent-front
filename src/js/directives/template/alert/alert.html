@@ -1,0 +1,31 @@
+<div ng-show="showAlertBox()" class="alert" ng-class='type && "alert-" + type'>
+	<button ng-show='closeable' type='button' class='close' ng-click='close()'>&times;</button>
+
+	<div ng-show="alertsToShow.showHeader">
+		<p>{{alertsToShow.header}}</p>
+		<a role="button" ng-click="openCollapse = !openCollapse">
+            <span ng-show="!openCollapse" style="cursor: pointer">
+                Ver mas detalles...
+            </span>
+
+            <span ng-show="openCollapse" style="cursor: pointer">
+                Ocultar detalles...
+            </span>
+		</a>
+		<br/>
+
+		<div ng-class="{ showMe: openCollapse }" class="collapsable">
+			<div ng-repeat="item in alertsToShow | orderBy:'orden'">
+				<p ng-repeat="element in item.errores" style="padding-top: 10px;">
+					{{element}}
+				</p>
+			</div>
+		</div>
+	</div>
+
+	<div ng-show="!alertsToShow.showHeader" ng-repeat="item in alertsToShow | orderBy:'orden'">
+		<p ng-repeat="element in item.errores">
+			{{element}}
+		</p>
+	</div>
+</div>

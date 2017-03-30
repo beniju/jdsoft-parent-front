@@ -1,0 +1,230 @@
+/*
+Theme Name: ATN Camaleon 3
+Author: Omar Villalba
+Version: 1.1
+*/
+
+/***********************************************************************
+ ***********************************************************************
+ * Se inlcuye el css de bootstrap3
+ * http://getbootstrap.com/
+ ***********************************************************************
+ ***********************************************************************/
+@import url("bootstrap.css");
+@import url("bootstrap.overrides.css");
+/***********************************************************************
+ ***********************************************************************
+ * Se inlcuye el css de los iconos de font-awesome
+ * http://fortawesome.github.io/Font-Awesome/icons/
+ ***********************************************************************
+ ***********************************************************************/
+@import url("font-awesome.css");
+
+/***********************************************************************
+ ***********************************************************************
+ Tipografias para KML 3
+ ***********************************************************************
+ ***********************************************************************/
+@import url("fonts.css");
+
+
+/***********************************************************************
+ ***********************************************************************
+ * Se inlcuye  css personalizados
+ ***********************************************************************
+ ***********************************************************************/
+@import url("sidebar.nav.css");
+@import url("validaciones.css");
+
+/***********************************************************************
+ ***********************************************************************
+ * Se inlcuye el css de jqgrid
+ * http://www.trirand.com/blog/
+ ***********************************************************************
+ ***********************************************************************/
+@import url("ui.jqgrid.css");
+
+/***********************************************************************
+ ***********************************************************************
+ * Se inlcuye el css de jqgrid overrides para que tenga el mismo estilo que bootstrap3
+ * http://www.trirand.com/blog/
+ ***********************************************************************
+ ***********************************************************************/
+@import url("jqGrid.overrides.css");
+
+/***********************************************************************
+ ***********************************************************************
+ * Se inlcuye el css de dialog
+ * https://github.com/m-e-conroy/angular-dialog-service/blob/master/README.md
+ ***********************************************************************
+ ***********************************************************************/
+@import url("dialogs.css");
+
+
+
+/***********************************************************************
+ ***********************************************************************
+ * Se inlcuye el css del wizard
+ * http://github.com/VinceG/twitter-bootstrap-wizard
+ ***********************************************************************
+ ***********************************************************************/
+@import url("wizard.css");
+
+@import url("select2.css");
+
+@import url("bootstrap-switch.min.css");
+
+/***********************************************************************
+ ***********************************************************************
+ * Se inlcuye el css del datepicker
+ *
+ ***********************************************************************
+ ***********************************************************************/
+@import url("datetimepicker.css");
+@import url("datetimepicker.jqgrid.css");
+@import url("bootstrap-duallistbox.min.css");
+
+/*
+* Estilos personalizados en los formularios
+*/
+@import url("forms.css");
+
+/***********************************************************************
+ ***********************************************************************
+ *  
+ * Bootstrap Overrides p/ ATN KML3
+ *
+ ***********************************************************************
+ ***********************************************************************/
+
+@import url("collapse.css");
+
+body {
+  font-size: small;
+}
+
+dl {
+  margin: 0px;
+}
+
+.panel-title,  .panel-title, .form-control, .dropdown-menu /*, .btn, .dropdown-menu */{
+  font-size: small;
+}
+
+.panel-body {
+  padding: 8px;
+}
+
+.panel-heading {
+  padding: 5px 8px;
+}
+
+.btn-default, 
+.btn-default:hover, 
+.btn-default:focus, 
+.btn-default:active, 
+.btn-default.active, 
+.open .dropdown-toggle.btn-default {
+  background-color: #D5E3F0;
+  color: #0053a3;
+  font-weight: bold;
+}
+
+p {
+  margin: 0 0 0px;
+}
+
+#collapseContratoLinea .dl-horizontal dt {
+ width: 100px;
+}
+
+#collapseContratoLinea .dl-horizontal dd {
+  margin-left:120px;
+}
+
+#collapseSeriesLinea .dl-horizontal dt {
+ width: 100px;
+}
+
+#collapseSeriesLinea .dl-horizontal dd {
+  margin-left:120px;
+}
+
+#collapseLCRCliente .dl-horizontal dt {
+ width: 200px;
+}
+
+#collapseLCRCliente .dl-horizontal dd {
+  margin-left:220px;
+}
+
+.switch {
+  min-width: 70px;
+  font-weight: bold;
+}
+
+.switch .switch-left {
+  color: #0053a3;
+  background: #D5E3F0; 
+}
+
+.switch .switch-right {
+  color: #D5E3F0;
+  background: #0053a3;
+}
+
+.form-horizontal .checkbox {
+  padding-top: 0;
+}
+
+body .modal-dialog-xl {
+  width: 100%;
+  padding-left: 25px;
+  padding-right: 0px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  max-width: 1240px;
+}
+
+.form-horizontal .checkbox {
+  padding-top: 0;
+}
+
+/* dropdown submenu */
+.dropdown-submenu {
+    position:relative;
+}
+.dropdown-submenu>.dropdown-menu {
+    top:0;
+    left:100%;
+    margin-top:-6px;
+    margin-left:-1px;
+    border-radius:0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+    display:block;
+}
+.dropdown-submenu>a:after {
+    display:block;
+    content:" ";
+    float:right;
+    width:0;
+    height:0;
+    border-color:transparent;
+    border-style:solid;
+    border-width:5px 0 5px 5px;
+    border-left-color:#cccccc;
+    margin-top:5px;
+    margin-right:-10px;
+}
+.dropdown-submenu:hover>a:after {
+    border-left-color:#ffffff;
+}
+.dropdown-submenu.pull-left {
+    float:none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+    left:85%;
+    margin-left:10px;
+    border-radius:6px 0 6px 6px;
+}

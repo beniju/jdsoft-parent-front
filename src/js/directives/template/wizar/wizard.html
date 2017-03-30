@@ -1,0 +1,40 @@
+<div class="wizard form-horizontal">
+
+
+    <div ng-transclude></div>
+
+    <div class="buttons">
+        <button class="btn btn-default btn-sm" ng-click="showPreviousStep()" ng-show="hasPrevious()"><i
+                class="icon icon-arrow-left"></i>&nbsp;&nbsp;Anterior
+        </button>
+        <button class="btn btn-success btn-sm" ng-click="confirm()" ng-disabled="isDisablePrevious()"
+                ng-show="!hasNext()"><i class="icon icon-check"></i>&nbsp;&nbsp;Confirmar
+        </button>
+        <button class="btn btn-primary btn-sm" ng-click="showNextStep()" ng-show="hasNext()"
+                ng-disabled="isDisablePrevious()"><i class="icon icon-arrow-right"></i>&nbsp;&nbsp;Siguiente
+        </button>
+        <button class="btn btn-danger btn-sm" ng-click="cancel()" type="button" ng-disabled="disabledForm"><i
+                class="icon icon-remove"></i>&nbsp;&nbsp;Cancelar
+        </button>
+    </div>
+
+    <ul class="container nav rc-nav-wizard">
+
+        <div data-ng-repeat="i in steps">
+            <li ng-class="{'active':i.currentStep, 'success': $index <currentStepIndex}">
+                <a class="active">
+                    <span class="badge">{{$index+1 }}</span>
+
+                    <span ng-if="($index+1) == steps.length">{{i.title}}  </span>
+
+                    <span ng-if="!(($index)+1 == steps.length)">{{i.title}} >> </span>
+
+                </a>
+
+            </li>
+        </div>
+
+    </ul>
+
+
+</div>

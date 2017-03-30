@@ -1,0 +1,4 @@
+
+  Pace.start({
+    document: false
+  });
