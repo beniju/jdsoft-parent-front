@@ -32,9 +32,9 @@ angular.module('SynchronousRequestServices', [])
         };
 
         this.synchronousRequest = function (metodo, url, content) {
-            var auth = window.authFactory;
-            var nombreUsuario = auth.authz.idTokenParsed.preferred_username;
-            var refreshToken = MasterUtils.synchronousRequestRefreshToken(auth);
+           // var auth = window.authFactory;
+            //var nombreUsuario = auth.authz.idTokenParsed.preferred_username;
+            //var refreshToken = MasterUtils.synchronousRequestRefreshToken(auth);
 
             var response = {};
             try {
@@ -62,8 +62,8 @@ angular.module('SynchronousRequestServices', [])
 
                 var xhr = new XMLHttpRequest();
                 xhr.open(metodo, url, false);
-                xhr.setRequestHeader("Authorization", 'Bearer ' + auth.authz.token);
-                xhr.setRequestHeader("usuario", nombreUsuario);
+                //xhr.setRequestHeader("Authorization", 'Bearer ' + auth.authz.token);
+                //xhr.setRequestHeader("usuario", nombreUsuario);
                 xhr.send();
 
                 response.data = {};

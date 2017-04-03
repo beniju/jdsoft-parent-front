@@ -8,24 +8,21 @@
  */
 var MasterUrl = {};
 
+var DigiUrl = {};
+
+DigiUrl.host = '@@urlDigi';
+
 MasterUrl.host = '@@urlMaster';
 
-MasterUrl.serviceRest = '/electroaqui/';
-
-MasterUrl.serviceRestElectroAqui = MasterUrl.serviceRest + '/electroaqui/';
-MasterUrl.serviceRestOracle = MasterUrl.serviceRest + '/oracle/';
-MasterUrl.serviceRestDefiniciones = MasterUrl.serviceRest + '/clientes/';
-MasterUrl.serviceRestPersonas = MasterUrl.serviceRest + '/proveedores/';
+MasterUrl.serviceRest = '/digi/tanque-m3/';
 
 MasterUrl.baseMasterUrl = "/master";
-MasterUrl.baseModuloUrl = "/module/tanque/";
-MasterUrl.redirectToModule = "";
-MasterUrl.loginMasterUrl = MasterUrl.baseMasterUrl + "/login";
 
-MasterUrl.basePostgresURL = MasterUrl.baseMasterUrl + "/module/postgres/";
-MasterUrl.baseOracleURL = MasterUrl.baseMasterUrl + "/module/oracle/";
-MasterUrl.baseDefinicionesURL = MasterUrl.baseMasterUrl + "/module/definiciones/";
-MasterUrl.basePersonasURL = MasterUrl.baseMasterUrl + "/module/personas/";
+MasterUrl.baseModuloUrl = "/module/tanque/";
+
+MasterUrl.redirectToModule = "";
+
+MasterUrl.loginMasterUrl = MasterUrl.baseMasterUrl + "/login";
 
 MasterUrl.error401403 = MasterUrl.baseMasterUrl + "#/401403";
 MasterUrl.error404 = MasterUrl.baseMasterUrl + "#/404";

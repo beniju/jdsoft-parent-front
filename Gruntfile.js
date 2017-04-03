@@ -13,7 +13,9 @@ var puerto = 9875;
 var pwd = "src/";
 
 //Producción:
-var urlMaster = '';
+var urlMaster = 'http://localhost:' + puerto;
+var urlDigi = 'http://192.168.1.7';
+
 module.exports = function (grunt) {
     require("matchdep").filterDev("grunt-*").forEach(grunt.loadNpmTasks);
 
@@ -25,57 +27,74 @@ module.exports = function (grunt) {
          */
         copy: {
             main: {
-                files: [{
-                    cwd: pwd,
-                    src: ['*.{html,json}'],
-                    dest: MasterDir,
-                    expand: true
-                }, {
-                    cwd: pwd + 'css',
-                    src: ['*.{png,gif}'],
-                    dest: MasterDir + '/css',
-                    expand: true
-                }, {
-                    cwd: pwd + 'img',
-                    src: '**/*',
-                    dest: MasterDir + '/img',
-                    expand: true
-                }, {
-                    cwd: pwd + 'lib',
-                    src: '**/*',
-                    dest: MasterTmpDir + '/lib',
-                    expand: true
-                }, {
-                    cwd: pwd + 'partials',
-                    src: '**/*',
-                    dest: MasterDir + '/partials',
-                    expand: true
-                }, {
-                    cwd: pwd + 'fonts',
-                    src: '**/*',
-                    dest: MasterDir + '/fonts',
-                    expand: true
-                }, {
-                    cwd: pwd + 'lib/file-reader',
-                    src: ['*.swf'],
-                    dest: MasterDir + '/lib/file-reader',
-                    expand: true
-                }, {
-                    cwd: pwd + 'lib/file-upload',
-                    src: ['*.swf'],
-                    dest: MasterDir + '/lib/file-upload',
-                    expand: true
-                }, {
-                    cwd: pwd + 'js/directives/template',
-                    src: ['**/*'],
-                    dest: MasterDir + '/js/template',
-                    expand: true
-                }, {
-                    cwd: pwd + 'module',
-                    src: ['*.{html,md}'],
-                    dest: MasterDir + '/module',
-                    expand: true
-                }]
+                files: [
+                    {
+                        cwd: pwd,
+                        src: ['*.{html,json}'],
+                        dest: MasterDir,
+                        expand: true
+                    },
+                    {
+                        cwd: pwd + 'css',
+                        src: ['*.{png,gif}'],
+                        dest: MasterDir + '/css',
+                        expand: true
+                    },
+                    {
+                        cwd: pwd + 'css/new',
+                        src: ['*.css'],
+                        dest: MasterDir + '/css/new',
+                        expand: true
+                    },
+                    {
+                        cwd: pwd + 'img',
+                        src: '**/*',
+                        dest: MasterDir + '/img',
+                        expand: true
+                    },
+                    {
+                        cwd: pwd + 'lib',
+                        src: '**/*',
+                        dest: MasterTmpDir + '/lib',
+                        expand: true
+                    },
+                    {
+                        cwd: pwd + 'partials',
+                        src: '**/*',
+                        dest: MasterDir + '/partials',
+                        expand: true
+                    },
+                    {
+                        cwd: pwd + 'fonts',
+                        src: '**/*',
+                        dest: MasterDir + '/fonts',
+                        expand: true
+                    },
+                    {
+                        cwd: pwd + 'lib/file-reader',
+                        src: ['*.swf'],
+                        dest: MasterDir + '/lib/file-reader',
+                        expand: true
+                    },
+                    {
+                        cwd: pwd + 'lib/file-upload',
+                        src: ['*.swf'],
+                        dest: MasterDir + '/lib/file-upload',
+                        expand: true
+                    },
+                    {
+                        cwd: pwd + 'js/directives/template',
+                        src: ['**/*'],
+                        dest: MasterDir + '/js/template',
+                        expand: true
+                    },
+                    {
+                        cwd: pwd + 'module',
+                        src: ['*.{html,md}'],
+                        dest: MasterDir + '/module',
+                        expand: true
+                    }
+                ]
             },
             local: {
                 files: [{
@@ -142,7 +161,6 @@ module.exports = function (grunt) {
                     MasterTmpDir + '/lib/pattern-input/pattern-input.js',
                     MasterTmpDir + '/lib/objectpath/ObjectPath.js',
                     MasterTmpDir + '/lib/tv4/tv4.js'
-
 
 
                 ],
@@ -221,11 +239,22 @@ module.exports = function (grunt) {
                 src: [
                     MasterTmpDir + '/js/app.js',
                     MasterTmpDir + '/js/setup.js'
+                ],
+                dest: MasterDir + '/js/main.js'
+            },
+            actions: {
+                src: [
+                    MasterTmpDir + '/js/actions.js',
 
                 ],
+                dest: MasterDir + '/js/actions.js'
 
-                dest: MasterDir + '/js/main.js'
-
+            },
+            plugins: {
+                src: [
+                    MasterTmpDir + '/js/plugins.js'
+                ],
+                dest: MasterDir + '/js/plugins.js'
             }
         },
 
@@ -248,6 +277,11 @@ module.exports = function (grunt) {
                 relativeDir: pwd + 'css',
                 main: pwd + 'css/style.css',
                 out: MasterDir + '/css/style.css'
+            },
+            'theme-default': {
+                relativeDir: pwd + 'css',
+                main: pwd + 'css/theme-default.css',
+                out: MasterDir + '/css/theme-default.css'
             },
             'pace': {
                 relativeDir: pwd + 'css/pace',
@@ -297,7 +331,7 @@ module.exports = function (grunt) {
                     }
                 },
                 proxies: [{
-                    context: '/master/api',
+                    context: '/digi/tanque-m3',
                     host: 'localhost',
                     port: 8080,
                     headers: {
@@ -310,10 +344,16 @@ module.exports = function (grunt) {
         replace: {
             dist: {
                 options: {
-                    patterns: [{
-                        match: 'urlMaster',
-                        replacement: urlMaster
-                    }]
+                    patterns: [
+                        {
+                            match: 'urlMaster',
+                            replacement: urlMaster
+                        },
+                        {
+                            match: 'urlDigi',
+                            replacement: urlDigi
+                        }
+                    ]
                 },
                 files: [{
                     src: [MasterTmpDir + '/js/helpers/appUtils.js'],
@@ -331,9 +371,7 @@ module.exports = function (grunt) {
                 path: 'http://localhost:' + puerto + appPath
             }
         },
-        watch: {
-
-        },
+        watch: {},
 
 
     });
@@ -345,7 +383,9 @@ module.exports = function (grunt) {
         'concat:librerias',
         'concat:own_libs',
         'concat:common_components',
-        'concat:parent_app'
+        'concat:parent_app',
+        'concat:actions',
+        'concat:plugins'
     ]);
     /*Comandos a ejecutar desde consola*/
     grunt.registerTask('deploy', ['uglify', 'css-include-combine', 'copy:main', 'replace:dist', 'concatLocal', 'clean:tmpDir']);
