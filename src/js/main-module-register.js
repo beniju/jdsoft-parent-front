@@ -1,2 +1,2 @@
 //se define la aplicación
-var app = angular.module('master', ['ngRoute', 'RouteResolverServices', 'directivesmodule', 'filtersModule', 'AuthService']);
+var app = angular.module('base', ['ngRoute', 'RouteResolverServices', 'directivesmodule', 'filtersModule', 'AuthService']);

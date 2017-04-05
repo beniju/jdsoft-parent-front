@@ -199,7 +199,7 @@ angular.module('dialogs.services', ['modal', 'dialogs.controllers'])
         return {
             error: function(msg) {
                 return $modal.open({
-                    templateUrl: '/master/js/template/dialogs/error.html',
+                    templateUrl: '/base/js/template/dialogs/error.html',
                     controller: 'errorDialogCtrl',
                     resolve: {
                         msg: function() {
@@ -211,7 +211,7 @@ angular.module('dialogs.services', ['modal', 'dialogs.controllers'])
 
             wait: function(msg, progress) {
                 return $modal.open({
-                    templateUrl: '/master/js/template/dialogs/wait.html',
+                    templateUrl: '/base/js/template/dialogs/wait.html',
                     controller: 'waitDialogCtrl',
                     resolve: {
                         msg: function() {
@@ -226,7 +226,7 @@ angular.module('dialogs.services', ['modal', 'dialogs.controllers'])
 
             notify: function(header, msg) {
                 return $modal.open({
-                    templateUrl: '/master/js/template/dialogs/notify.html',
+                    templateUrl: '/base/js/template/dialogs/notify.html',
                     controller: 'notifyDialogCtrl',
                     resolve: {
                         header: function() {
@@ -241,7 +241,7 @@ angular.module('dialogs.services', ['modal', 'dialogs.controllers'])
 
             confirm: function(header, msg) {
                 return $modal.open({
-                    templateUrl: '/master/js/template/dialogs/confirm.html',
+                    templateUrl: '/base/js/template/dialogs/confirm.html',
                     controller: 'confirmDialogCtrl',
                     resolve: {
                         header: function() {
@@ -256,7 +256,7 @@ angular.module('dialogs.services', ['modal', 'dialogs.controllers'])
 
             warningConfirm: function(header, msg) {
                 return $modal.open({
-                    templateUrl: '/master/js/template/dialogs/warningConfirm.html',
+                    templateUrl: '/base/js/template/dialogs/warningConfirm.html',
                     controller: 'warningConfirmDialogCtrl',
                     resolve: {
                         header: function() {
@@ -271,7 +271,7 @@ angular.module('dialogs.services', ['modal', 'dialogs.controllers'])
 
             warning: function(header, msg) {
                 return $modal.open({
-                    templateUrl: '/master/js/template/dialogs/warning.html',
+                    templateUrl: '/base/js/template/dialogs/warning.html',
                     controller: 'warningDialogCtrl',
                     resolve: {
                         header: function() {
@@ -286,7 +286,7 @@ angular.module('dialogs.services', ['modal', 'dialogs.controllers'])
 
             info: function(header, msg) {
                 return $modal.open({
-                    templateUrl: '/master/js/template/dialogs/info.html',
+                    templateUrl: '/base/js/template/dialogs/info.html',
                     controller: 'infoDialogCtrl',
                     resolve: {
                         header: function() {

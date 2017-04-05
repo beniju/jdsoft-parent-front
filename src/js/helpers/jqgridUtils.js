@@ -1,14 +1,14 @@
 /**
  *  Utilitaria para manejo de Errores en el jqgrid
  */
-var MasterJqgridUtils = {};
+var BaseJqgridUtils = {};
 
 /**
  * Utilitaria para Manejo de acciones con respecto al DOM
  * @return {[type]} [description]
  */
 
-MasterJqgridUtils.processResponseJqgrid = function (xhr, jqgridTable) {
+BaseJqgridUtils.processResponseJqgrid = function (xhr, jqgridTable) {
 
     if (xhr.status === 404) {
         jqgridTable.clearGridData();
@@ -17,7 +17,7 @@ MasterJqgridUtils.processResponseJqgrid = function (xhr, jqgridTable) {
         };
     }
 
-    MasterUtils.redirectError(xhr.status);
+    BaseUtils.redirectError(xhr.status);
 
     var response = {};
     if (typeof (xhr.responseJSON) == 'undefined') {
@@ -29,5 +29,5 @@ MasterJqgridUtils.processResponseJqgrid = function (xhr, jqgridTable) {
         response = xhr.responseJSON;
     }
 
-    return MasterUtils.processResponse(response);
+    return BaseUtils.processResponse(response);
 };

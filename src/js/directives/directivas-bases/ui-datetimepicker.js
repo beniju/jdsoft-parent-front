@@ -337,7 +337,7 @@ angular.module("datetimepicker", [])
                 };
                 return initialize();
             },
-            templateUrl: '/master/js/template/datepicker/datetimepicker.html'
+            templateUrl: '/base/js/template/datepicker/datetimepicker.html'
         };
     }
 ])

@@ -6,14 +6,14 @@
  * 4) concatenar los libs principales
  * 5) Eliminar archivos inecesarios.
  */
-var MasterDir = 'dist/master';
-var MasterTmpDir = MasterDir + '/tmp';
-var appPath = '/master';
+var BaseDir = 'dist/base';
+var BaseTmpDir = BaseDir + '/tmp';
+var appPath = '/base';
 var puerto = 9875;
 var pwd = "src/";
 
 //Producción:
-var urlMaster = 'http://localhost:' + puerto;
+var urlBase = 'http://localhost:' + puerto;
 var urlDigi = 'http://192.168.1.7';
 
 module.exports = function (grunt) {
@@ -31,67 +31,73 @@ module.exports = function (grunt) {
                     {
                         cwd: pwd,
                         src: ['*.{html,json}'],
-                        dest: MasterDir,
+                        dest: BaseDir,
                         expand: true
                     },
                     {
                         cwd: pwd + 'css',
                         src: ['*.{png,gif}'],
-                        dest: MasterDir + '/css',
+                        dest: BaseDir + '/css',
                         expand: true
                     },
                     {
                         cwd: pwd + 'css/new',
                         src: ['*.css'],
-                        dest: MasterDir + '/css/new',
+                        dest: BaseDir + '/css/new',
+                        expand: true
+                    },
+                    {
+                        cwd: pwd + 'css/fonts',
+                        src: ['*'],
+                        dest: BaseDir + '/css/fonts',
                         expand: true
                     },
                     {
                         cwd: pwd + 'img',
                         src: '**/*',
-                        dest: MasterDir + '/img',
+                        dest: BaseDir + '/img',
                         expand: true
                     },
                     {
                         cwd: pwd + 'lib',
                         src: '**/*',
-                        dest: MasterTmpDir + '/lib',
+                        dest: BaseTmpDir + '/lib',
                         expand: true
                     },
                     {
                         cwd: pwd + 'partials',
                         src: '**/*',
-                        dest: MasterDir + '/partials',
+                        dest: BaseDir + '/partials',
                         expand: true
                     },
                     {
                         cwd: pwd + 'fonts',
                         src: '**/*',
-                        dest: MasterDir + '/fonts',
+                        dest: BaseDir + '/fonts',
                         expand: true
                     },
                     {
                         cwd: pwd + 'lib/file-reader',
                         src: ['*.swf'],
-                        dest: MasterDir + '/lib/file-reader',
+                        dest: BaseDir + '/lib/file-reader',
                         expand: true
                     },
                     {
                         cwd: pwd + 'lib/file-upload',
                         src: ['*.swf'],
-                        dest: MasterDir + '/lib/file-upload',
+                        dest: BaseDir + '/lib/file-upload',
                         expand: true
                     },
                     {
                         cwd: pwd + 'js/directives/template',
                         src: ['**/*'],
-                        dest: MasterDir + '/js/template',
+                        dest: BaseDir + '/js/template',
                         expand: true
                     },
                     {
                         cwd: pwd + 'module',
                         src: ['*.{html,md}'],
-                        dest: MasterDir + '/module',
+                        dest: BaseDir + '/module',
                         expand: true
                     }
                 ]
@@ -100,7 +106,7 @@ module.exports = function (grunt) {
                 files: [{
                     cwd: pwd + 'js',
                     src: ['**/*js'],
-                    dest: MasterTmpDir + '/js',
+                    dest: BaseTmpDir + '/js',
                     expand: true
                 }]
             },
@@ -108,7 +114,7 @@ module.exports = function (grunt) {
                 files: [{
                     cwd: 'dist',
                     src: ['**'],
-                    dest: '../dist-master',
+                    dest: '../dist-base',
                     expand: true
                 }]
             }
@@ -124,137 +130,137 @@ module.exports = function (grunt) {
             third_party_libs: {
                 src: [
                     /*lib de terceros*/
-                    MasterTmpDir + '/lib/jquery/jquery.min.js',
-                    MasterTmpDir + '/lib/jquery/jquery.jqgrid.min.js',
-                    MasterTmpDir + '/lib/jquery/jquery.bootstrap.wizard.js',
-                    MasterTmpDir + '/lib/jquery/jquery-ui-1.9.2.custom.min.js',
-                    MasterTmpDir + '/lib/jquery/blockUI.js',
-                    MasterTmpDir + '/lib/jquery/jquery.bootstrap-duallistbox.min.js',
-                    MasterTmpDir + '/lib/jquery/grid.locale-es.js',
-                    MasterTmpDir + '/lib/pace/pace.min.js',
+                    BaseTmpDir + '/lib/jquery/jquery.min.js',
+                    BaseTmpDir + '/lib/jquery/jquery.jqgrid.min.js',
+                    BaseTmpDir + '/lib/jquery/jquery.bootstrap.wizard.js',
+                    BaseTmpDir + '/lib/jquery/jquery-ui-1.9.2.custom.min.js',
+                    BaseTmpDir + '/lib/jquery/blockUI.js',
+                    BaseTmpDir + '/lib/jquery/jquery.bootstrap-duallistbox.min.js',
+                    BaseTmpDir + '/lib/jquery/grid.locale-es.js',
+                    BaseTmpDir + '/lib/pace/pace.min.js',
 
-                    MasterTmpDir + '/lib/select2/select2.js',
-                    MasterTmpDir + '/lib/select2/select2_locale_es.js',
+                    BaseTmpDir + '/lib/select2/select2.js',
+                    BaseTmpDir + '/lib/select2/select2_locale_es.js',
 
-                    MasterTmpDir + '/lib/angular/angular.min.js',
-                    MasterTmpDir + '/lib/angular/angular.animate.min.js',
-                    MasterTmpDir + '/lib/angular/angular.cookies.min.js',
-                    MasterTmpDir + '/lib/angular/angular-locale-es.js',
-                    MasterTmpDir + '/lib/angular/angular-resource.js',
-                    MasterTmpDir + '/lib/angular/angular-route.js',
-                    MasterTmpDir + '/lib/angular/angular.sanitize.min.js',
+                    BaseTmpDir + '/lib/angular/angular.min.js',
+                    BaseTmpDir + '/lib/angular/angular.animate.min.js',
+                    BaseTmpDir + '/lib/angular/angular.cookies.min.js',
+                    BaseTmpDir + '/lib/angular/angular-locale-es.js',
+                    BaseTmpDir + '/lib/angular/angular-resource.js',
+                    BaseTmpDir + '/lib/angular/angular-route.js',
+                    BaseTmpDir + '/lib/angular/angular.sanitize.min.js',
 
-                    MasterTmpDir + '/lib/bootstrap/bootstrap.min.js',
-                    MasterTmpDir + '/lib/bootstrap/bootstrap-combobox.js',
-                    MasterTmpDir + '/lib/bootstrap/bootstrap-datepicker-es.js',
-                    MasterTmpDir + '/lib/date/date.js',
-                    MasterTmpDir + '/lib/date/es-PY.js',
-                    MasterTmpDir + '/lib/file-reader/jquery.FileReader.js',
-                    MasterTmpDir + '/lib/file-reader/swfobject.js',
-                    MasterTmpDir + '/lib/file-reader/uiFileReader.min.js',
-                    MasterTmpDir + '/lib/file-upload/FileAPI.min.js',
-                    MasterTmpDir + '/lib/file-reader/bootstrap-file-upload.min.js',
-                    MasterTmpDir + '/lib/file-upload/angular-file-upload-shim.min.js',
-                    MasterTmpDir + '/lib/jquery-placeholder/jquery.jquery-placeholder.js',
-                    MasterTmpDir + '/lib/keycloak/keycloak.js',
-                    MasterTmpDir + '/lib/modernizr/modernizr.custom.05679.js',
-                    MasterTmpDir + '/lib/pattern-input/pattern-input.js',
-                    MasterTmpDir + '/lib/objectpath/ObjectPath.js',
-                    MasterTmpDir + '/lib/tv4/tv4.js'
+                    BaseTmpDir + '/lib/bootstrap/bootstrap.min.js',
+                    BaseTmpDir + '/lib/bootstrap/bootstrap-combobox.js',
+                    BaseTmpDir + '/lib/bootstrap/bootstrap-datepicker-es.js',
+                    BaseTmpDir + '/lib/date/date.js',
+                    BaseTmpDir + '/lib/date/es-PY.js',
+                    BaseTmpDir + '/lib/file-reader/jquery.FileReader.js',
+                    BaseTmpDir + '/lib/file-reader/swfobject.js',
+                    BaseTmpDir + '/lib/file-reader/uiFileReader.min.js',
+                    BaseTmpDir + '/lib/file-upload/FileAPI.min.js',
+                    BaseTmpDir + '/lib/file-reader/bootstrap-file-upload.min.js',
+                    BaseTmpDir + '/lib/file-upload/angular-file-upload-shim.min.js',
+                    BaseTmpDir + '/lib/jquery-placeholder/jquery.jquery-placeholder.js',
+                    BaseTmpDir + '/lib/keycloak/keycloak.js',
+                    BaseTmpDir + '/lib/modernizr/modernizr.custom.05679.js',
+                    BaseTmpDir + '/lib/pattern-input/pattern-input.js',
+                    BaseTmpDir + '/lib/objectpath/ObjectPath.js',
+                    BaseTmpDir + '/lib/tv4/tv4.js'
 
 
                 ],
-                dest: MasterDir + '/js/third-party-libs.js'
+                dest: BaseDir + '/js/third-party-libs.js'
             },
             librerias: {
                 src: [
                     /*Helpers e inicializadores globales*/
-                    MasterTmpDir + '/js/helpers/position.js',
-                    MasterTmpDir + '/js/helpers/bindHtml.js',
+                    BaseTmpDir + '/js/helpers/position.js',
+                    BaseTmpDir + '/js/helpers/bindHtml.js',
 
-                    MasterTmpDir + '/js/directives/directivas-bases/ui-formater-inputs.js',
-                    MasterTmpDir + '/js/directives/directivas-bases/ui-event-directive.js',
-                    MasterTmpDir + '/js/directives/directivas-bases/ui-tooltip-directive.js',
-                    MasterTmpDir + '/js/directives/directivas-bases/ui-modal-directive.js',
-                    MasterTmpDir + '/js/directives/directivas-bases/breadcrumb-directive.js',
-                    MasterTmpDir + '/js/directives/directivas-bases/ui-alert-directive.js',
-                    MasterTmpDir + '/js/directives/directivas-bases/ui-blockui-directive.js',
-                    MasterTmpDir + '/js/directives/directivas-bases/ui-jqgrid-directive.js',
-                    MasterTmpDir + '/js/directives/directivas-bases/ui-wizar-directive.js',
-                    MasterTmpDir + '/js/directives/directivas-bases/ui-select2-directive.js',
-                    MasterTmpDir + '/js/directives/directivas-bases/ui-dropdown-directive.js',
-                    MasterTmpDir + '/js/directives/directivas-bases/ui-timepicker-directive.js',
-                    MasterTmpDir + '/js/directives/directivas-bases/validation-number-directive.js',
-                    MasterTmpDir + '/js/directives/directivas-bases/validation-regla-negocio-directive.js',
-                    MasterTmpDir + '/js/directives/directivas-bases/ui-focusme-directive.js',
-                    MasterTmpDir + '/js/directives/directivas-bases/ui-datetimepicker.js',
-                    MasterTmpDir + '/js/directives/directivas-bases/ui-duallistbox.js',
-                    MasterTmpDir + '/js/directives/directivas-bases/ui-file-reader.js',
-                    MasterTmpDir + '/js/directives/directivas-bases/dynamic-controller-directive.js',
-                    MasterTmpDir + '/js/directives/directivas-bases/ui-pattern-input-directive.js',
-                    MasterTmpDir + '/js/directives/directivas-bases/checklist-model.js',
-                    MasterTmpDir + '/js/directives/directivas-opcionales/ui-switch.js',
-                    MasterTmpDir + '/js/directives/directivas-bases/schema-form.js',
-                    MasterTmpDir + '/js/directives/ui-module-directive.js',
-                    MasterTmpDir + '/js/filters/filters-module.js',
+                    BaseTmpDir + '/js/directives/directivas-bases/ui-formater-inputs.js',
+                    BaseTmpDir + '/js/directives/directivas-bases/ui-event-directive.js',
+                    BaseTmpDir + '/js/directives/directivas-bases/ui-tooltip-directive.js',
+                    BaseTmpDir + '/js/directives/directivas-bases/ui-modal-directive.js',
+                    BaseTmpDir + '/js/directives/directivas-bases/breadcrumb-directive.js',
+                    BaseTmpDir + '/js/directives/directivas-bases/ui-alert-directive.js',
+                    BaseTmpDir + '/js/directives/directivas-bases/ui-blockui-directive.js',
+                    BaseTmpDir + '/js/directives/directivas-bases/ui-jqgrid-directive.js',
+                    BaseTmpDir + '/js/directives/directivas-bases/ui-wizar-directive.js',
+                    BaseTmpDir + '/js/directives/directivas-bases/ui-select2-directive.js',
+                    BaseTmpDir + '/js/directives/directivas-bases/ui-dropdown-directive.js',
+                    BaseTmpDir + '/js/directives/directivas-bases/ui-timepicker-directive.js',
+                    BaseTmpDir + '/js/directives/directivas-bases/validation-number-directive.js',
+                    BaseTmpDir + '/js/directives/directivas-bases/validation-regla-negocio-directive.js',
+                    BaseTmpDir + '/js/directives/directivas-bases/ui-focusme-directive.js',
+                    BaseTmpDir + '/js/directives/directivas-bases/ui-datetimepicker.js',
+                    BaseTmpDir + '/js/directives/directivas-bases/ui-duallistbox.js',
+                    BaseTmpDir + '/js/directives/directivas-bases/ui-file-reader.js',
+                    BaseTmpDir + '/js/directives/directivas-bases/dynamic-controller-directive.js',
+                    BaseTmpDir + '/js/directives/directivas-bases/ui-pattern-input-directive.js',
+                    BaseTmpDir + '/js/directives/directivas-bases/checklist-model.js',
+                    BaseTmpDir + '/js/directives/directivas-opcionales/ui-switch.js',
+                    BaseTmpDir + '/js/directives/directivas-bases/schema-form.js',
+                    BaseTmpDir + '/js/directives/ui-module-directive.js',
+                    BaseTmpDir + '/js/filters/filters-module.js',
 
                     /*Services*/
-                    MasterTmpDir + '/js/services/route-resolver.js',
-                    MasterTmpDir + '/js/services/auth-service.js',
-                    MasterTmpDir + '/js/services/synchronous-request-services.js',
+                    BaseTmpDir + '/js/services/route-resolver.js',
+                    BaseTmpDir + '/js/services/auth-service.js',
+                    BaseTmpDir + '/js/services/synchronous-request-services.js',
 
                     /*Directivas propias*/
-                    MasterTmpDir + '/js/helpers/jqgridUtils.js',
-                    MasterTmpDir + '/js/helpers/dialogs.js'
+                    BaseTmpDir + '/js/helpers/jqgridUtils.js',
+                    BaseTmpDir + '/js/helpers/dialogs.js'
 
                 ],
 
-                dest: MasterTmpDir + '/js/libs.js'
+                dest: BaseTmpDir + '/js/libs.js'
 
             },
             own_libs: {
                 src: [
-                    MasterTmpDir + '/js/helpers/appUtilsHost.js',
-                    MasterTmpDir + '/js/libs.js',
+                    BaseTmpDir + '/js/helpers/appUtilsHost.js',
+                    BaseTmpDir + '/js/libs.js',
                 ],
 
-                dest: MasterDir + '/js/own-libs.js'
+                dest: BaseDir + '/js/own-libs.js'
 
             },
             common_components: {
                 src: [
-                    MasterTmpDir + '/js/main-module-register.js',
+                    BaseTmpDir + '/js/main-module-register.js',
 
                     /*Controladores base*/
-                    MasterTmpDir + '/js/controllers/*.js',
-                    MasterTmpDir + '/js/controllers/**/**/*.js',
-                    MasterTmpDir + '/js/controllers/**/*.js'
+                    BaseTmpDir + '/js/controllers/*.js',
+                    BaseTmpDir + '/js/controllers/**/**/*.js',
+                    BaseTmpDir + '/js/controllers/**/*.js'
 
                 ],
 
-                dest: MasterDir + '/js/common-components.js'
+                dest: BaseDir + '/js/common-components.js'
 
             },
             parent_app: {
                 src: [
-                    MasterTmpDir + '/js/app.js',
-                    MasterTmpDir + '/js/setup.js'
+                    BaseTmpDir + '/js/app.js',
+                    BaseTmpDir + '/js/setup.js'
                 ],
-                dest: MasterDir + '/js/main.js'
+                dest: BaseDir + '/js/main.js'
             },
             actions: {
                 src: [
-                    MasterTmpDir + '/js/actions.js',
+                    BaseTmpDir + '/js/actions.js',
 
                 ],
-                dest: MasterDir + '/js/actions.js'
+                dest: BaseDir + '/js/actions.js'
 
             },
             plugins: {
                 src: [
-                    MasterTmpDir + '/js/plugins.js'
+                    BaseTmpDir + '/js/plugins.js'
                 ],
-                dest: MasterDir + '/js/plugins.js'
+                dest: BaseDir + '/js/plugins.js'
             }
         },
 
@@ -264,7 +270,7 @@ module.exports = function (grunt) {
                 trace: true
             },
             dist: ['dist'],
-            tmpDir: [MasterTmpDir]
+            tmpDir: [BaseTmpDir]
         },
 
 
@@ -276,17 +282,17 @@ module.exports = function (grunt) {
             'libs': {
                 relativeDir: pwd + 'css',
                 main: pwd + 'css/style.css',
-                out: MasterDir + '/css/style.css'
+                out: BaseDir + '/css/style.css'
             },
             'theme-default': {
                 relativeDir: pwd + 'css',
                 main: pwd + 'css/theme-default.css',
-                out: MasterDir + '/css/theme-default.css'
+                out: BaseDir + '/css/theme-default.css'
             },
             'pace': {
                 relativeDir: pwd + 'css/pace',
                 main: pwd + 'css/pace/pace.css',
-                out: MasterDir + '/css/pace/pace.css'
+                out: BaseDir + '/css/pace/pace.css'
             }
         },
 
@@ -304,7 +310,7 @@ module.exports = function (grunt) {
                     expand: true,
                     cwd: pwd + 'js',
                     src: '**/*js',
-                    dest: MasterTmpDir + '/js',
+                    dest: BaseTmpDir + '/js',
                     ext: '.js',
                     extDot: 'last'
                 }]
@@ -346,8 +352,8 @@ module.exports = function (grunt) {
                 options: {
                     patterns: [
                         {
-                            match: 'urlMaster',
-                            replacement: urlMaster
+                            match: 'urlBase',
+                            replacement: urlBase
                         },
                         {
                             match: 'urlDigi',
@@ -356,8 +362,8 @@ module.exports = function (grunt) {
                     ]
                 },
                 files: [{
-                    src: [MasterTmpDir + '/js/helpers/appUtils.js'],
-                    dest: MasterTmpDir + '/js/helpers/appUtilsHost.js'
+                    src: [BaseTmpDir + '/js/helpers/appUtils.js'],
+                    dest: BaseTmpDir + '/js/helpers/appUtilsHost.js'
                 }]
             }
         },

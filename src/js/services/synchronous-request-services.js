@@ -2,7 +2,7 @@
  * Define un módulo de Utilidad
  *
  * @class
- * @name master.service.SynchronousRequestServices
+ * @name base.service.SynchronousRequestServices
  * @author <>
  */
 
@@ -34,7 +34,7 @@ angular.module('SynchronousRequestServices', [])
         this.synchronousRequest = function (metodo, url, content) {
            // var auth = window.authFactory;
             //var nombreUsuario = auth.authz.idTokenParsed.preferred_username;
-            //var refreshToken = MasterUtils.synchronousRequestRefreshToken(auth);
+            //var refreshToken = BaseUtils.synchronousRequestRefreshToken(auth);
 
             var response = {};
             try {
@@ -81,8 +81,8 @@ angular.module('SynchronousRequestServices', [])
                 response.config = {};
 
                 if (xhr.status != 200 && xhr.status != 201) {
-                    MasterUtils.redirectError(xhr.status);
-                    response = MasterUtils.processResponse(response);
+                    BaseUtils.redirectError(xhr.status);
+                    response = BaseUtils.processResponse(response);
                 }
 
             } catch (error) {
@@ -92,7 +92,7 @@ angular.module('SynchronousRequestServices', [])
                 response.status = 0;
                 response.headers = content ? content : '';
                 response.config = {};
-                response = MasterUtils.processResponse(response);
+                response = BaseUtils.processResponse(response);
             }
 
             return response;

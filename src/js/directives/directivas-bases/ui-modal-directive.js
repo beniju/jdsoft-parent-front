@@ -1,7 +1,7 @@
 /** Modal es un servicio para crear rápidamente ventanas modales
  * <a href ="http://angular-ui.github.io/bootstrap/#/modal</a>
  * @class
- * @name master.directive.modal
+ * @name base.directive.modal
  * @author <>
  */
 
@@ -69,7 +69,7 @@ angular.module('modal', [])
         return {
             restrict: 'EA',
             replace: true,
-            templateUrl: '/master/js/template/modal/backdrop.html',
+            templateUrl: '/base/js/template/modal/backdrop.html',
             link: function (scope, element, attrs) {
 
                 //trigger CSS transitions
@@ -99,7 +99,7 @@ angular.module('modal', [])
             },
             replace: true,
             transclude: true,
-            templateUrl: '/master/js/template/modal/window.html',
+            templateUrl: '/base/js/template/modal/window.html',
             link: function (scope, element, attrs) {
                 scope.windowClass = attrs.windowClass || '';
 

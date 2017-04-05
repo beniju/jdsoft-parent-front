@@ -25,7 +25,7 @@ angular.module('wizard', [])
                 onCancel: '&'
             },
 
-            templateUrl: '/master/js/template/wizar/wizard.html',
+            templateUrl: '/base/js/template/wizar/wizard.html',
 
             replace: true,
 

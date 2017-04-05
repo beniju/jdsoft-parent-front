@@ -3,7 +3,7 @@
  * <a href ="http://getbootstrap.com/components/#alerts.</a>
  *
  * @class
- * @name master.directive.uiAlert
+ * @name base.directive.uiAlert
  * @author <a href="mailto:ggimenez@konecta.com.py">Gabriel Alberto Giménez</a>
  */
 
@@ -347,7 +347,7 @@ angular.module('alert', [])
             restrict: 'E',
 
             //se hace referencia al template
-            templateUrl: '/master/js/template/alert/alert.html',
+            templateUrl: '/base/js/template/alert/alert.html',
             transclude: true,
             replace: true,
 

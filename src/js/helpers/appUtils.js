@@ -6,27 +6,27 @@
  * Manejo de url
  *
  */
-var MasterUrl = {};
+var BaseUrl = {};
 
 var DigiUrl = {};
 
 DigiUrl.host = '@@urlDigi';
 
-MasterUrl.host = '@@urlMaster';
+BaseUrl.host = '@@urlBase';
 
-MasterUrl.serviceRest = '/digi/tanque-m3/';
+BaseUrl.serviceRest = '/digi/tanque-m3/';
 
-MasterUrl.baseMasterUrl = "/master";
+BaseUrl.baseBaseUrl = "/base";
 
-MasterUrl.baseModuloUrl = "/module/tanque/";
+BaseUrl.baseModuloUrl = "/module/tanque/";
 
-MasterUrl.redirectToModule = "";
+BaseUrl.redirectToModule = "";
 
-MasterUrl.loginMasterUrl = MasterUrl.baseMasterUrl + "/login";
+BaseUrl.loginBaseUrl = BaseUrl.baseBaseUrl + "/login";
 
-MasterUrl.error401403 = MasterUrl.baseMasterUrl + "#/401403";
-MasterUrl.error404 = MasterUrl.baseMasterUrl + "#/404";
-MasterUrl.keycloakFile = MasterUrl.host + '/master/keycloak.json';
+BaseUrl.error401403 = BaseUrl.baseBaseUrl + "#/401403";
+BaseUrl.error404 = BaseUrl.baseBaseUrl + "#/404";
+BaseUrl.keycloakFile = BaseUrl.host + '/base/keycloak.json';
 
 /**
  * Construye la url partir de  path y y parametros
@@ -35,10 +35,10 @@ MasterUrl.keycloakFile = MasterUrl.host + '/master/keycloak.json';
  * @param  {String} paramtros parametros  a añadir en la url (opcional)
  * @return {String}   url formada
  */
-MasterUrl.geturl = function (path, paramtros) {
+BaseUrl.geturl = function (path, paramtros) {
     var url = "";
     if (path != null) {
-        url = MasterUrl.baseURL + "/#/" + path + "/";
+        url = BaseUrl.baseURL + "/#/" + path + "/";
         if (paramtros) {
             url += "?";
             for (var param in paramtros) {
@@ -56,7 +56,7 @@ MasterUrl.geturl = function (path, paramtros) {
  * @param  {array} params [array de parametros]
  * @return {String}   parametros en formato queryParam
  */
-MasterUrl.buildqueryParam = function (params) {
+BaseUrl.buildqueryParam = function (params) {
     var url = "";
     if (params) {
         url += "?";
@@ -73,7 +73,7 @@ MasterUrl.buildqueryParam = function (params) {
  * @param  {String} path      el nombre del page  a cargar
  * @param  {String} paramtros parametros  a añadir en la url (opcional)
  */
-MasterUrl.redireccionar = function (path, paramtros) {
+BaseUrl.redireccionar = function (path, paramtros) {
 
     window.location = this.getUrl(path, paramtros);
 };
@@ -82,14 +82,14 @@ MasterUrl.redireccionar = function (path, paramtros) {
 /**
  *  Utilitaria para manejo de Fechas
  */
-var MasterUtils = {};
+var BaseUtils = {};
 
 /**
  * Utilitaria para Manejo de acciones con respecto al DOM
  * @return {[type]} [description]
  */
 
-MasterUtils.deleteValues = function (object) {
+BaseUtils.deleteValues = function (object) {
     Object.keys(object).forEach(function (key) {
 
         delete object[key];
@@ -97,7 +97,7 @@ MasterUtils.deleteValues = function (object) {
     });
 };
 
-MasterUtils.deleteUndefinedValues = function (object) {
+BaseUtils.deleteUndefinedValues = function (object) {
     Object.keys(object).forEach(function (key) {
         if (!object[key]) {
             delete object[key];
@@ -105,7 +105,7 @@ MasterUtils.deleteUndefinedValues = function (object) {
     });
 };
 
-MasterUtils.dynamicSort = function (property) {
+BaseUtils.dynamicSort = function (property) {
     var sortOrder = 1;
     if (property[0] === "-") {
         sortOrder = -1;
@@ -173,7 +173,7 @@ function resizeAllGrids() {
     });
 }
 
-/*MasterUtils.recargarGrillaJQGrid = function(Auth,tableParams){
+/*BaseUtils.recargarGrillaJQGrid = function(Auth,tableParams){
  if (Auth.authz.token) {
  Auth.authz.updateToken(5).success(function() {
  console.log('listo updateToken');
@@ -183,12 +183,12 @@ function resizeAllGrids() {
  });
  }
  }
- MasterUtils.agregarTokenJQGrid = function(Auth,jqXHR){
+ BaseUtils.agregarTokenJQGrid = function(Auth,jqXHR){
  jqXHR.setRequestHeader("Authorization",'Bearer ' + Auth.authz.token);
  }*/
 
-MasterUtils.synchronousRequestRefreshToken = function (Auth) {
-    if (MasterUtils.isTokenExpired(5)) {
+BaseUtils.synchronousRequestRefreshToken = function (Auth) {
+    if (BaseUtils.isTokenExpired(5)) {
 
         var response = {};
         try {
@@ -220,7 +220,7 @@ MasterUtils.synchronousRequestRefreshToken = function (Auth) {
     return true;
 };
 
-MasterUtils.isTokenExpired = function (minValidity) {
+BaseUtils.isTokenExpired = function (minValidity) {
 
     var expiresIn = (new Date().getTime() / 1000) - window.ultimoRefreshToken;
     if (minValidity) {
@@ -232,21 +232,21 @@ MasterUtils.isTokenExpired = function (minValidity) {
     return expiresIn >= 0;
 };
 
-MasterUtils.redirectError = function (estado) {
+BaseUtils.redirectError = function (estado) {
     if (estado == 401) {
-        window.location = MasterUrl.error401403;
+        window.location = BaseUrl.error401403;
     } else if (estado == 403) {
-        window.location = MasterUrl.error401403;
+        window.location = BaseUrl.error401403;
     }
 };
 
-MasterUtils.processResponse = function (responseIN) {
+BaseUtils.processResponse = function (responseIN) {
 
     var status = responseIN.status;
     var messages = [];
 
     if (!(responseIN instanceof Object) && responseIN == 'Failed to refresh token') {
-        window.location = MasterUrl.baseMasterUrl;
+        window.location = BaseUrl.baseBaseUrl;
     }
 
     if (typeof (responseIN.messages) != 'undefined') {

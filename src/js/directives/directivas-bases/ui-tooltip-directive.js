@@ -3,7 +3,7 @@
  * <a href ="http://angular-ui.github.io/bootstrap/#/tooltip</a>
  *
  * @class
- * @name master.directive.tooltip
+ * @name base.directive.tooltip
  * @author <>
  */
 
@@ -336,7 +336,7 @@ angular.module('tooltip', ['ui.bootstrap.position', 'ui.bootstrap.bindHtml'])
             animation: '&',
             isOpen: '&'
         },
-        templateUrl: '/master/js/template/tooltip/tooltip-popup.html',
+        templateUrl: '/base/js/template/tooltip/tooltip-popup.html',
     };
 })
 
@@ -356,7 +356,7 @@ angular.module('tooltip', ['ui.bootstrap.position', 'ui.bootstrap.bindHtml'])
             animation: '&',
             isOpen: '&'
         },
-        templateUrl: '/master/js/template/tooltip/tooltip-html-unsafe-popup.html'
+        templateUrl: '/base/js/template/tooltip/tooltip-html-unsafe-popup.html'
     };
 })
 

@@ -119,7 +119,7 @@ app.controller('LoginController', ['$rootScope', '$scope', 'Auth', '$location', 
                 auth.setToken(data.userToken);
                 //se redirecciona a /home
                 // $location.path("/");
-                var redirect = MasterUrl.redirectToModule;
+                var redirect = BaseUrl.redirectToModule;
                 window.location = redirect;
             } else {
                 alert("Sorry! No web storage support");

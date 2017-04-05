@@ -8,86 +8,78 @@
 
     <title>Tanque-Digi</title>
 
-    <link href="css/pace/pace.css" rel="stylesheet" />
-    <link href="css/style.css" rel="stylesheet" media="screen">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" id="theme" href="css/theme-default.css"/>
+
+
+    <link href="module/tanque/css/tanque.css" rel="stylesheet" media="screen">
     <style>
         [data-ng-cloak] {
             display: none;
         }
     </style>
 </head>
-
 <body data-ng-cloak>
-    <div class="col-xs-offset-4 col-xs-4" ng-class="{'hidden':esLogin()}">
-        <h3 class="panel-title">cargando...</h3>
-        <div class="progress progress-striped active">
-            <div class="progress-bar" id="loading-status"></div>
-        </div>
-        <div id="loading-module-name"></div>
+<!-- START PAGE CONTAINER -->
+<div class="">
+
+    <!-- START PAGE SIDEBAR -->
+    <div class="page-sidebar" ng-class="{'hidden':esLogin()}">
+        <!-- START X-NAVIGATION -->
+        <ul class="x-navigation">
+            <li class="xn-logo">
+                <a href="#">Base</a>
+                <a href="#" class="x-navigation-control"></a>
+            </li>
+
+            <li class="active">
+                <a href="module/tanque"><span class="fa fa-desktop"></span> <span class="xn-text">Tanque</span></a>
+            </li>
+
+        </ul>
+        <!-- END X-NAVIGATION -->
     </div>
-    <div id="wrapper" ng-class="{'active':!esLogin()}">
+    <!-- END PAGE SIDEBAR -->
 
-        <div class="navbar navbar-default navbar-fixed-top" ng-class="{'hidden':esLogin()}">
-            <div class="navbar-header">
-                <a id="menu-toggle" href="Javascript:mostrarMenu();" class="text-custom"><h2>
-                        <i class="icon-reorder"></i> <strong>ElectroAqui</strong>
-                    </h2></a>
-            </div>
-            <div class="nav navbar-nav navbar-right hidden-xs">
-                <a href="https://www.columbia.edu.py/"><img src="img/logo-columbia-horizontal1.png" class="logo" alt="Paraguay"></a>
-                <a href="/master" class="btn btn-link text-custom"><span class="icon-2x icon-home" /></a>
-                <button class="btn btn-link text-custom">
-                    <span class="icon-2x icon-question-sign"></span>
-                </button>
-                <button class="btn btn-link text-custom" ng-click="logout()">
-                    <span class="icon-2x icon-signout"></span>
-                </button>
-            </div>
-        </div>
-
-        <!-- Menu principal-->
-        <header id="sidebar-wrapper">
-            <ul class="sidebar-nav">
-                <li class="visible-xs">
-                    <a href="Javascript:void(0)">
-                        <i class="icon-2x icon-question-sign"></i> Ayuda
-                    </a>
+    <!-- PAGE CONTENT -->
+    <div class="page-content">
+        <div ng-class="{'hidden':esLogin()}">
+            <!-- START X-NAVIGATION VERTICAL -->
+            <ul class="x-navigation x-navigation-horizontal x-navigation-panel">
+                <!-- TOGGLE NAVIGATION -->
+                <li class="xn-icon-button">
+                    <a class="x-navigation-minimize"><span class="fa fa-dedent"></span></a>
                 </li>
+                <!-- END TOGGLE NAVIGATION -->
 
-                <li class="visible-xs">
-                    <a href="Javascript:void(0)" ng-click="logout()">
-                        <i class="icon-2x icon-signout"></i> Cerrar sesión
-                    </a>
+                <!-- SIGN OUT -->
+                <li class="xn-icon-button pull-right">
+                    <a ng-click="logout()" class="mb-control" data-box="#mb-signout"><span
+                            class="fa fa-sign-out"></span></a>
                 </li>
-
-                <li class="visible-xs">
-                    <a href="#">
-                        <i class="icon icon-home"></i>Inicio
-                    </a>
-                </li>
-
-                <li ng-show="habilitarMenu('generadores', 'null')" id="menuGeneradores">
-                    <a href="module/electroaqui"> <i class="icon icon-fire"></i> ElectroAqui
-                    </a>
-                </li>
+                <!-- END SIGN OUT -->
 
             </ul>
-        </header>
-
+        </div>
+        <!-- END X-NAVIGATION VERTICAL -->
         <div id="page-content-wrapper" class="container">
-            <!-- Tabla de datos #page-content-nav-->
             <!-- inicio del contenedor de los partials -->
             <div data-ng-view id="main-container" class="col-lg-12"></div>
             <!-- fin del contenedor de los partials -->
         </div>
-
-        <footer></footer>
     </div>
-    <script src="js/third-party-libs.js"></script>
-    <script src="js/own-libs.js"></script>
-    <script src="js/common-components.js"></script>
-    <script src="js/main.js"></script>
-</body>
+    <!-- END PAGE CONTENT -->
+</div>
+<!-- END PAGE CONTAINER -->
 
+<!-- START SCRIPTS -->
+<script src="js/third-party-libs.js"></script>
+<script src="js/own-libs.js"></script>
+<script src="js/common-components.js"></script>
+<script src="js/main.js"></script>
+<script type="text/javascript" src="js/plugins.js"></script>
+<script type="text/javascript" src="js/actions.js"></script>
+
+<!-- END SCRIPTS -->
+
+</body>
 </html>

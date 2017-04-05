@@ -22,7 +22,7 @@ angular.module('breadcrumb', [])
         return {
             restrict: 'A',
             scope: true,
-            templateUrl: '/master/js/template/breadcrumb/breadcrumb.html',
+            templateUrl: '/base/js/template/breadcrumb/breadcrumb.html',
             controller: function ($scope, $location, $route) {
                 var pathElements = $location.path().split('/'),
                     result = [],

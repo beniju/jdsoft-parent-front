@@ -1,77 +1,83 @@
-<style>
-    [data-ng-cloak] {
-        display: none;
-    }
-    
-    .tarjeta {
-        margin-top: 20px;
-        padding: 20px 10px 20px;
-        background-color: #f7f7f7;
-        -moz-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
-        -webkit-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
-        box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
-    }
-    
-    .logo-usuario {
-        width: 96px;
-        height: 96px;
-        margin: 0 auto 10px;
-        display: block;
-        -moz-border-radius: 50%;
-        -webkit-border-radius: 50%;
-        border-radius: 50%;
-    }
-    
-    h1 {
-        font-size: 3em;
-        color: #044d93;
-        border-bottom: none;
-        margin-bottom: 0;
-        padding-bottom: 0;
-    }
-</style>
+<!DOCTYPE html>
+<html lang="en" class="body-full-height">
+<head>
+    <!-- META SECTION -->
+    <title>Tanque Digi</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
 
-<div class="row">
-    <div class="col-md-4 col-md-offset-4">
+    <link rel="icon" href="favicon.ico" type="image/x-icon"/>
+    <!-- END META SECTION -->
 
-        <div id="tarjeta" class="tarjeta">
+    <!-- CSS INCLUDE -->
+    <link rel="stylesheet" type="text/css" id="theme" href="css/theme-default.css"/>
+    <!-- EOF CSS INCLUDE -->
+</head>
+<body>
 
-            <!--<p class="text-center"><a href="http://www.personal.com.py"><img src="img/img_footer_logo.png" class="logo" alt="Personal Paraguay"></a></p>-->
+<div class="login-container">
 
-            <img class="logo-usuario" src="img/user_login.png" alt="">
-            <h1 class="text-center"><strong>Bienvenido</strong></h1>
-            <br>
-            <form id="reg" ng-submit="login()" method="post" class="text-right">
+    <div class="login-box animated fadeInDown">
+        <div class="login-logo"></div>
+        <div class="login-body">
+            <div class="login-title"><strong>Log In</strong> to your account</div>
+            <form d="reg" ng-submit="login()" class="form-horizontal" method="post">
                 <div class="form-group">
-                    <div class="input-group">
-                        <span class="input-group-addon"><i class="icon icon-fixed-width icon-user"></i></span>
-                        <input id="j_username" ng-model="usuario" name="j_username" placeholder="admin" type="text" class="form-control" focus-me="true">
+                    <div class="col-md-12">
+                        <input id="j_username" ng-model="usuario" name="j_username" placeholder="admin" type="text"
+                               class="form-control" focus-me="true">
                     </div>
                 </div>
-
                 <div class="form-group">
-                    <div class="input-group">
-                        <span class="input-group-addon"><i class="icon icon-fixed-width icon-key"></i></span>
-                        <input ng-model="passwd" id="j_password" name="j_password" placeholder="admin" type="password" class="form-control">
+                    <div class="col-md-12">
+                        <input ng-model="passwd" id="j_password" name="j_password" placeholder="admin" type="password"
+                               class="form-control">
                     </div>
                 </div>
-
                 <div class="form-group">
-                    <button type="submit" class="btn btn-lg btn-primary btn-block">Ingresar</button>
+                    <!-- <div class="col-md-6">
+                         <a href="#" class="btn btn-link btn-block">Forgot your password?</a>
+                     </div>-->
+                    <div class="col-md-6">
+                        <button type="submit" class="btn btn-info btn-block">Log In</button>
+                    </div>
                 </div>
+                <!--<div class="login-or">OR</div>
+                <div class="form-group">
+                    <div class="col-md-4">
+                        <button class="btn btn-info btn-block btn-twitter"><span class="fa fa-twitter"></span> Twitter
+                        </button>
+                    </div>
+                    <div class="col-md-4">
+                        <button class="btn btn-info btn-block btn-facebook"><span class="fa fa-facebook"></span>
+                            Facebook
+                        </button>
+                    </div>
+                    <div class="col-md-4">
+                        <button class="btn btn-info btn-block btn-google"><span class="fa fa-google-plus"></span> Google
+                        </button>
+                    </div>
+                </div>-->
+                <!--<div class="login-subtitle">
+                    Don't have an account yet? <a href="#">Create an account</a>
+                </div>-->
             </form>
         </div>
+        <div class="login-footer">
+            <div class="pull-left">
+                &copy; 2017 JDSOFT
+            </div>
+        </div>
     </div>
-    <!-- //main content -->
-</div>
-<!-- //row -->
 
-<script>
-    function centrarLogin() {
-        var margen_top = ($(document).height() - $('#tarjeta').height() - 100) / 2;
-        if (margen_top < 0) {
-            mragen_top = 0;
-        }
-        $('#tarjeta').css("margin-top", margen_top);
-    }
-</script>
+</div>
+
+</body>
+</html>
+
+
+
+
+
+
